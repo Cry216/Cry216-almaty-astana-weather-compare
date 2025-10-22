@@ -1,2 +1,10 @@
 # Cry216-almaty-astana-weather-compare
-Сравнение погоды Almaty vs Astana, где комфортнее
+almaty-astana-weather-compare/
+main.py                 
+data/
+ weather.csv          # небольшой пример данных (2 города, несколько дней)
+src/
+fetch_open_meteo.py  
+README.md               
+requirements.txt        # зависимости (pandas, matplotlib, requests)
+.gitignore             
