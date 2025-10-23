@@ -4,7 +4,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import datetime as datetime  
 
-
 try:
     sys.stdout.reconfigure(encoding="utf-8")
 except Exception:
@@ -44,10 +43,7 @@ except Exception:
 
 
 def load_city(name: str, lat: float, lon: float, past_days: int = PAST_DAYS) -> pd.DataFrame:
-    """
-    Скачивает ежедневные максимальные температуры за сегодня + past_days.
-    Возвращает DataFrame: date, city, temperature.
-    """
+    
     url = "https://api.open-meteo.com/v1/forecast"
     params = {
         "latitude":  lat,
@@ -64,9 +60,7 @@ def load_city(name: str, lat: float, lon: float, past_days: int = PAST_DAYS) -> 
     })
 
 def refresh_csv(csv_path: Path, max_age_hours: int = MAX_AGE_HOURS) -> None:
-    """
-    Если csv нет или он старше max_age_hours — скачиваем заново.
-    """
+
     need_update = not csv_path.exists()
     if not need_update:
         age_h = (datetime.datetime.now() - datetime.datetime.fromtimestamp(csv_path.stat().st_mtime)).total_seconds()/3600
