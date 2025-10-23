@@ -1,21 +1,19 @@
-# Almaty vs Astana — compare & plot
-
 from pathlib import Path
 import sys
 import pandas as pd
 import matplotlib.pyplot as plt
-import datetime as datetime  # не конфликтуем с переменными
+import datetime as datetime  
 
-# --- консоль Windows: печать UTF-8 ---
+
 try:
     sys.stdout.reconfigure(encoding="utf-8")
 except Exception:
     pass
 
-# ===== настройки =====
-PAST_DAYS = 14           # сколько последних дней тянуть из Open-Meteo
-MAX_AGE_HOURS = 6        # через сколько часов обновлять локальный CSV
-TIMEZONE = "Asia/Almaty" # часовой пояс для API
+
+PAST_DAYS = 14           
+MAX_AGE_HOURS = 6        
+TIMEZONE = "Asia/Almaty" 
 
 CITIES = {
     "Astana": (51.1801, 71.4460),
